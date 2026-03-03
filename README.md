@@ -1,20 +1,25 @@
-# NL2Logic
+<div align="center">
+  <h1 align="center">NL2Logic: AST-Guided Translation of Natural Language into First-Order Logic with Large Language Models</h1>
+</div>
+
+<p align="center">
+  <a href='https://arxiv.org/abs/2602.13237'><img src='https://img.shields.io/badge/Paper-Arxiv-crimson'></a>
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-lavender.svg" alt="License: MIT"></a>
+</p>
+
+
+
+## Overview
 
 NL2Logic is a framework for translating natural language into
 *semantically faithful* and *syntactically executable* first-order logic (FOL)
 using an AST-guided approach with large language models.
 
-This repository contains the reference implementation used in the paper:
-
-> **NL2Logic: AST-Guided Translation of Natural Language into First-Order Logic with Large Language Models**
-
-## Overview
-
-NL2Logic avoids end-to-end text-to-logic generation.
+NL2Logic avoids single-step, free-form text generation.
 Instead, it:
 1. Iteratively parses natural language into a **First-Order Logic Abstract Syntax Tree (FOL AST)**.
 2. Deterministically compiles the AST into **solver-ready logic** using a multi-pass generation process.
-3. Produces executable logic compatible with SMT solvers such as **Z3**.
+3. Produces executable logic compatible with various logic engine such as **Z3**.
 
 
 Tested models:
@@ -48,6 +53,7 @@ Python ≥ 3.9 is recommended.
 
 NL2Logic uses OpenAI models when the `openai` backend is selected.
 To enable this, you need to set your OpenAI API key as an environment variable.
+On top of that, NL2Logic also support [vLLM](https://github.com/vllm-project/vllm) and [ollama](https://ollama.com) backend.
 
 ### OpenAI API Key
 
@@ -129,3 +135,22 @@ Experiments in the paper use the following benchmarks:
 - [LogicNLI](https://huggingface.co/datasets/tasksource/LogicNLI)
 - [FOLIO](https://huggingface.co/datasets/yale-nlp/FOLIO)
 - [ProofWriter](https://allenai.org/data/proofwriter)
+
+## Citation
+
+If you use NL2Logic in your research, please cite our paper:
+
+```bibtex
+@inproceedings{nl2logic,
+    title = "NL2Logic: AST-Guided Translation of Natural Language into First-Order Logic with Large Language Models",
+    author = "Putra, Rizky Ramadhana  and
+      Pasha Basuki, Raihan Sultan  and
+      Cheng, Yutong  and
+      Gao, Peng",
+    booktitle = "Findings of the Association for Computational Linguistics: EACL 2026",
+    month = mar,
+    year = "2026",
+    address = "Rabat, Morocco",
+    publisher = "Association for Computational Linguistics"
+}
+```
